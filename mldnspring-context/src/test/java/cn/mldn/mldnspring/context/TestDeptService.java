@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -14,8 +15,8 @@ import junit.framework.TestCase;
 @ContextConfiguration(locations = { "classpath:spring/spring-context.xml" })	// 进行资源文件定位
 @RunWith(SpringJUnit4ClassRunner.class)	// 设置要使用的测试工具
 public class TestDeptService extends TestCase {
-	@Resource
-	private IDeptService deptService ;	// 直接注入业务对象
+	@Resource(name="deptService2")  
+	private IDeptService deptService ;	// 直接注入业务对象 
 	@Test
 	public void testAdd() {
 		Dept dept = new Dept() ;	// 创建VO对象
